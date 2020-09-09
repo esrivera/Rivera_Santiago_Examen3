@@ -21,6 +21,7 @@ export class SubcategoriaService {
 
   listCategoria(){
     const url = "http://localhost:3000/categoria";
+    return this.http.get(url);
   }
 
   addSubcategoria(subcategoria) {
@@ -30,6 +31,11 @@ export class SubcategoriaService {
 
   deleteSubcategoria(cod_sub_categoria) {
     const url = "http://localhost:3000/subcategoria/delete/" + cod_sub_categoria;
+    return this.http.delete(url);
+  }
+
+  listSubcategoriaByCat(cod_categoria){
+    const url = "http://localhost:3000/subcategoria/" + cod_categoria;
     return this.http.delete(url);
   }
 }

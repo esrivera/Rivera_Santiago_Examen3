@@ -23,13 +23,27 @@
     </div>
 </nav>
 <div class="container mt-5">
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <select [(ngModel)]="subcategoria.cod_categoria" class="custom-select" id="cod_categoriao" name="cod_categoriao" aria-label="Example select with button addon">
+                    <option *ngFor="let categoria of categorias" value="{{categoria.cod_categoria}}">{{categoria.descripcion}}</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <button (click)="listSubcategoriaByCat(cod_categoria)" type="submit" class="btn btn-secondary">Buscar</button>
+            </div>
+
+        </div>
+
+    </form>
     <div class="row justify-content-center">
         <div class="col-md-12">
             <table class="table table-striped table-dark">
                 <thead>
                     <tr>
-                        <th scope="col">COD CAtegoria</th>
-                        <th scope="col">COD Subcategoria</th>
+                        <th scope="col">Cod CAtegoria</th>
+                        <th scope="col">Cod Subcategoria</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Descripcion</th>
                         <th scope="col">Fecha Caducidad</th>
@@ -59,7 +73,9 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="nombre">CODIGO CATEGORIA</label>
-                        <input [(ngModel)]="subcategoria.cod_categoria" type="text" class="form-control" id="nombre" name="nombre" required>
+                        <select [(ngModel)]="subcategoria.cod_categoria" class="custom-select" id="cod_categoriao" name="cod_categoriao" aria-label="Example select with button addon">
+                            <option *ngFor="let categoria of categorias" value="{{categoria.cod_categoria}}">{{categoria.descripcion}}</option>
+                        </select>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="ciudad">CODIGO SUBCATEGORIA</label>

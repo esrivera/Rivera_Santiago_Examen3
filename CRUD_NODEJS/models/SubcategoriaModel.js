@@ -36,13 +36,13 @@ Subcategoria.getCategoria = result => {
     });
 };
 Subcategoria.findById = (codCategoria, result) => {
-    sql.query(`SELECT * FROM subcategoria WHERE COD_CATEGORIA = ${codCategoria}`, (err, res) => {
+    sql.query(`SELECT * FROM subcategoria WHERE COD_CATEGORIA = '${codCategoria}'`, (err, res) => {
         if (err) {
             result(err, null);
             return;
         }
         if (res.length) {
-            result(null, res[0]);
+            result(null, res);
             return;
         }
         result({ kind: "not_found" }, null);
