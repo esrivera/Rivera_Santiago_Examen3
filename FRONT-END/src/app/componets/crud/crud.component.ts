@@ -30,7 +30,6 @@ export class CrudComponent implements OnInit {
   nombre: string = "";
   descripcion: string = "";
   cod_categoria: string = "";
-  cod_sub_categoria: string = "";
   cod_categoriao: string = "";
   fecha_creacion: Date;
   subcategorias: SubcategoriaInterface[] = [];

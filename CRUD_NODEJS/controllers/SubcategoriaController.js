@@ -54,7 +54,21 @@ exports.findOne = (req, res) => {
         } else res.send(data);
     });
 };
-
+exports.findOneSub = (req, res) => {
+    Subcategoria.findByIdCat(req.params.codSubcategoria, (err, data) => {
+        if (err) {
+            if (err.kind == "not_found") {
+                res.status(404).send({
+                    message: `not found Estadio with id ${req.params.codSubcategoria}.`
+                });
+            } else {
+                res.status(500).send({
+                    message: "Error al recuperar el estadio con id" + req.params.codSubcategoria
+                });
+            }
+        } else res.send(data);
+    });
+};
 exports.delete = (req, res) => {
     Subcategoria.remove(req.params.codSubcategoria, (err, data) => {
         if (err) {

@@ -1,27 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="#"><img width="30" height="30" src="https://cdn.svgporn.com/logos/prismic-icon.svg" alt=""></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<app-navbar></app-navbar>
 <div class="container mt-5">
     <form>
         <div class="form-row">
@@ -66,7 +43,7 @@
         </div>
     </div>
 </div>
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
     <div class="row">
         <div class="col-md-8">
             <form>
@@ -86,17 +63,21 @@
                     <label for="direccion">Nombre</label>
                     <input [(ngModel)]="subcategoria.nombre" type="text" class="form-control" id="nombre" name="nombre" required>
                 </div>
+                <div class="form-group">
+                    <label for="capacidad">Descripcion</label>
+                    <input [(ngModel)]="subcategoria.descripcion" type="text" class="form-control" name="descripcion" id="descripcion" required>
+                </div>
                 <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <label for="capacidad">Descripcion</label>
-                        <input [(ngModel)]="subcategoria.descripcion" type="text" class="form-control" name="descripcion" id="descripcion" required>
-                    </div>
                     <div class="form-group col-md-4">
                         <label for="fecha_creacion">Fecha Creacion</label>
                         <input [(ngModel)]="subcategoria.fecha_creacion" type="date" name="fecha_inaguracion" class="form-control" id="fecha_inaguracion" required>
                     </div>
+                    <div class="form-group col-md-6">
+                        <br>
+                        <button (click)="addSubcategoria()" type="submit" class="btn btn-primary m-lg-2 ml-5">Registrar</button>
+                    </div>
                 </div>
-                <button (click)="addSubcategoria()" type="submit" class="btn btn-primary">Registrar</button>
+
             </form>
         </div>
     </div>

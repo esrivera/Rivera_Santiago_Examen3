@@ -48,6 +48,19 @@ Subcategoria.findById = (codCategoria, result) => {
         result({ kind: "not_found" }, null);
     });
 };
+Subcategoria.findByIdCat = (codSubcategoria, result) => {
+    sql.query(`SELECT * FROM subcategoria WHERE COD_SUB_CATEGORIA = '${codSubcategoria}'`, (err, res) => {
+        if (err) {
+            result(err, null);
+            return;
+        }
+        if (res.length) {
+            result(null, res[0]);
+            return;
+        }
+        result({ kind: "not_found" }, null);
+    });
+};
 
 Subcategoria.remove = (id, result) => {
     sql.query("DELETE FROM SUBCATEGORIA WHERE COD_SUB_CATEGORIA = ?", id, (err, res) => {
